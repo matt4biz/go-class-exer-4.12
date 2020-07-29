@@ -66,26 +66,7 @@ func main() {
 	fmt.Fprint(output, "[")
 	defer fmt.Fprint(output, "]")
 
-	// stop if we get 2 404s in a row (get past #404)
-
-	for i := 1; fails < 2; i++ {
-		if data = getOne(i); data == nil {
-			fails++
-			continue
-		}
-
-		if cnt > 0 {
-			fmt.Fprint(output, ",") // OB1
-		}
-
-		if _, err = io.Copy(output, bytes.NewBuffer(data)); err != nil {
-			fmt.Fprintf(os.Stderr, "stopped: %s", err)
-			os.Exit(-1)
-		}
-
-		fails = 0
-		cnt++
-	}
+	// some code here
 
 	fmt.Fprintf(os.Stderr, "read %d comics\n", cnt)
 }
