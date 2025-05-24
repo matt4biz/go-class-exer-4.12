@@ -49,7 +49,7 @@ func main() {
 		data   []byte
 	)
 
-	if len(os.Args) > 0 {
+	if len(os.Args) > 1 {
 		output, err = os.Create(os.Args[1])
 
 		if err != nil {
